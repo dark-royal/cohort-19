@@ -25,4 +25,24 @@ public class UserServiceImplementation implements UserService {
         registerResponse.setMessage("Registration Successful");
         return registerResponse;
     }
+
+    @Override
+    public LoginResponse login(LoginRequest request) throws LoginException, UserNotFoundException {
+        User user = userRepository.findByEmail(request.getEmail());
+        if(user != null) {
+            if(user.getPassword().equals(request.getPassword())) {
+                user.setLoginStatus(true);
+                userRepository.save(user);
+                LoginResponse loginResponse = new LoginResponse();
+                loginResponse.setMessage("Login successful");
+                return loginResponse;
+            }
+            else{
+                throw new LoginException("Invalid email or password");
+            }
+        }
+        else {
+            throw new UserNotFoundException("User not found");
+        }
+    }
 }
