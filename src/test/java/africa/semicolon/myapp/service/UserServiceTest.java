@@ -24,5 +24,8 @@ public class UserServiceTest {
         RegisterResponse response = userService.register(request);
         assertThat(response).isNotNull();
         assertThat(response.getMessage()).contains("Registration Successful");
+        assertThat(response.getMessage()).contains("Registration Successful");
+        assertThat(response.getMessage()).contains("Registration Successful");
+
     }
 }
