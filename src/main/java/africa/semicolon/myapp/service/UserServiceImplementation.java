@@ -2,11 +2,16 @@ package africa.semicolon.myapp.service;
 
 import africa.semicolon.myapp.data.models.User;
 import africa.semicolon.myapp.data.repositories.UserRepository;
+import africa.semicolon.myapp.dtos.request.LoginRequest;
 import africa.semicolon.myapp.dtos.request.RegisterRequest;
+import africa.semicolon.myapp.dtos.response.LoginResponse;
 import africa.semicolon.myapp.dtos.response.RegisterResponse;
+import africa.semicolon.myapp.exception.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.stereotype.Service;
+
+import javax.security.auth.login.LoginException;
 
 @Service
 public class UserServiceImplementation implements UserService {

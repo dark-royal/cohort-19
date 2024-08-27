@@ -1,4 +1,4 @@
-package com.example.userApp.dtos.response;
+package africa.semicolon.myapp.dtos.response;
 
 import lombok.Getter;
 import lombok.Setter;
