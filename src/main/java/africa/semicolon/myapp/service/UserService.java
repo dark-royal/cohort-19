@@ -8,4 +8,6 @@ import org.springframework.stereotype.Service;
 public interface UserService {
 
     RegisterResponse register(RegisterRequest registerRequest);
+    LoginResponse login(LoginRequest request) throws LoginException, UserNotFoundException;
+
 }

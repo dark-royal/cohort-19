@@ -28,4 +28,17 @@ public class UserServiceTest {
         assertThat(response.getMessage()).contains("Registration Successful");
 
     }
+
+    @Test
+    public void testLoginUser() throws UserNotFoundException, LoginException {
+        testRegisterUser();
+        LoginRequest request = new LoginRequest();
+        request.setEmail("praise@gmail.com");
+        request.setPassword("praise123");
+        LoginResponse response = userService.login(request);
+        assertThat(response).isNotNull();
+        assertThat(response.getMessage()).contains("Login successful");
+
+    }
+
 }
